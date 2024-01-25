@@ -1,0 +1,39 @@
+server:
+  port: 8080
+shoole:
+  class:
+    redis[rediss1]:
+        isAct: true
+        person:
+          name: Dyy1
+          age: 11
+
+    redis[rediss2]:
+        isAct: true
+        person:
+          name: Dyy2
+          age:  22
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+logging:
+#  pattern:
+#    console: "%d{yyyy-MM-dd HH:mm:ss.SSS} %5p ${PID:-} --- [%X{group}] [%t] %c{1.} : %m%n"
+#    console: ">%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} [%X{group}] - %msg%n"
+  level:
+    root: error
+    #对组的日志级别设置
+    group-test: error
+    #对单个类的日志级别设置
+    com.dyy.springboot.boottesting.logging.DebugLoggerService: error
+    com.dyy.springboot.boottesting.logging.ErroLoggerService: error
+    com.dyy.springboot.boottesting.logging.InfoLoggerService: error
+  group:
+    group-test:
+      - 'com.dyy.springboot.boottesting.logging.group.GroupDebugLoggerService'
+      - 'com.dyy.springboot.boottesting.logging.group.GroupErroLoggerService'
+      - 'com.dyy.springboot.boottesting.logging.group.GroupInfoLoggerService'
+
+
