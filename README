@@ -1,0 +1,2 @@
+spring-boot基础功能测试的项目
+1.日志和actuator动态配置日志级别，yml设置日志组的功能
